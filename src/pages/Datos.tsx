@@ -1,5 +1,5 @@
-// --- 💡 CAMBIO 1: Importar useEffect ---
-import { useState, useEffect } from "react";
+// --- 💡 CAMBIO 1: Importar useRef, useCallback y las nuevas librerías ---
+import { useState, useEffect, useRef, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -9,9 +9,14 @@ import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Toolti
 import ejecutivoData from "@/data/elecciones_ejecutivo.json";
 import legislativoData from "@/data/elecciones_legislativo.json";
 import provinciaData from "@/data/votos_por_provincia.json";
-import { BarChart3, PieChart as PieChartIcon, CircleDot, Map } from "lucide-react";
+// --- 💡 CAMBIO 1.2: Importar el icono de Descarga ---
+import { BarChart3, PieChart as PieChartIcon, CircleDot, Map, Download } from "lucide-react";
 import HemicicloChart from "@/components/charts/HemicicloChart";
 import MapChart from "@/components/charts/MapChart";
+// --- 💡 CAMBIO 1.3: Importar las librerías de descarga ---
+import { toPng } from 'html-to-image';
+import { saveAs } from 'file-saver';
+
 
 type ElectionType = "ejecutivo" | "legislativo";
 type ChartType = "bar" | "pie" | "hemiciclo" | "mapa";
@@ -20,16 +25,15 @@ const Datos = () => {
   const [electionType, setElectionType] = useState<ElectionType>("ejecutivo");
   const [chartType, setChartType] = useState<ChartType>("bar");
   const [selectedYear, setSelectedYear] = useState<number>(2024);
+  
+  // --- 💡 CAMBIO 2: Crear una ref para el contenedor del gráfico ---
+  const chartContainerRef = useRef<HTMLDivElement>(null);
 
-  // --- 💡 CAMBIO 2: Añadir hook useEffect para restablecer el estado ---
   useEffect(() => {
-    // Si cambiamos a "ejecutivo" Y el gráfico actual es "hemiciclo"...
     if (electionType === "ejecutivo" && chartType === "hemiciclo") {
-      // ...restablecemos el gráfico a "barras"
       setChartType("bar");
     }
-  }, [electionType, chartType]); // Se ejecuta cada vez que electionType cambia
-  // --- 💡 ---
+  }, [electionType, chartType]); 
 
   const years = [1994, 1999, 2004, 2009, 2014, 2019, 2024];
   const currentData = electionType === "ejecutivo" ? ejecutivoData : legislativoData;
@@ -41,16 +45,37 @@ const Datos = () => {
     fill: party.color,
   }));
 
-  // Party colors for map
   const partyColors: Record<string, string> = {};
   yearData.parties.forEach((party: any) => {
     partyColors[party.name] = party.color;
   });
 
-  // Province data for map
   const provinceData = (provinciaData.data as any)[String(selectedYear)] || {};
 
+  // --- 💡 CAMBIO 3: Añadir la función de descarga ---
+  const handleDownload = useCallback(() => {
+    if (chartContainerRef.current === null) {
+      return;
+    }
+
+    toPng(chartContainerRef.current, { 
+      cacheBust: true,
+      backgroundColor: 'white' // Para asegurar que no tenga fondo transparente
+    })
+      .then((dataUrl) => {
+        // Crear un nombre de archivo dinámico
+        const filename = `grafico_${chartType}_${electionType}_${selectedYear}.png`;
+        // Usar saveAs para descargar la imagen
+        saveAs(dataUrl, filename);
+      })
+      .catch((err) => {
+        console.error('Error al descargar el gráfico:', err);
+      });
+  }, [chartContainerRef, chartType, electionType, selectedYear]); // Dependencias de la función
+
+
   const renderChart = () => {
+    // ... (Tu función renderChart no cambia en absoluto) ...
     if (chartType === "bar") {
       return (
         <ResponsiveContainer width="100%" height={400}>
@@ -92,8 +117,7 @@ const Datos = () => {
         </ResponsiveContainer>
       );
     }
-
-    // --- 💡 CAMBIO 3: Condición añadida al renderizado (aunque useEffect ya lo previene) ---
+    
     if (chartType === "hemiciclo" && electionType === "legislativo") {
       const totalSeats = (yearData as any).totalSeats;
       return (
@@ -131,7 +155,8 @@ const Datos = () => {
 
           {/* Controls */}
           <Card className="p-6 mb-8 shadow-soft">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+             {/* ... (Tus controles de Tipo de Elección y Tipo de Gráfico no cambian) ... */}
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Election Type Selector */}
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-3">
@@ -139,7 +164,6 @@ const Datos = () => {
                 </label>
                 <div className="flex gap-2">
                   <Button
-                    // El onClick ahora es simple, el useEffect se encarga de la lógica
                     onClick={() => setElectionType("ejecutivo")}
                     variant={electionType === "ejecutivo" ? "default" : "outline"}
                     className="flex-1"
@@ -161,7 +185,6 @@ const Datos = () => {
                 <label className="block text-sm font-semibold text-foreground mb-3">
                   Tipo de Gráfico
                 </label>
-                {/* --- 💡 CAMBIO 3: Cuadrícula (grid) dinámica --- */}
                 <div className={`grid grid-cols-2 ${
                   electionType === 'legislativo' ? 'md:grid-cols-4' : 'md:grid-cols-3'
                 } gap-2`}>
@@ -182,7 +205,6 @@ const Datos = () => {
                     Circular
                   </Button>
                   
-                  {/* --- 💡 CAMBIO 3: Renderizado condicional del botón --- */}
                   {electionType === "legislativo" && (
                     <Button
                       onClick={() => setChartType("hemiciclo")}
@@ -193,7 +215,6 @@ const Datos = () => {
                       Hemiciclo
                     </Button>
                   )}
-                  {/* --- 💡 --- */}
 
                   <Button
                     onClick={() => setChartType("mapa")}
@@ -210,22 +231,61 @@ const Datos = () => {
 
           {/* Chart Display */}
           <Card className="p-6 mb-8 shadow-soft">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-foreground mb-2">
-                Elecciones {electionType === "ejecutivo" ? "Ejecutivas" : "Legislativas"} - {selectedYear}
-              </h2>
-              <p className="text-muted-foreground">
-                {electionType === "ejecutivo"
-                  ? `Total de votos: ${(yearData as any).totalVotes.toLocaleString()}`
-                  : `Total de escaños: ${(yearData as any).totalSeats}`}
-              </p>
+            {/* --- 💡 CAMBIO 4: Reorganizar el header del gráfico y añadir el botón --- */}
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-foreground mb-2">
+                  Elecciones {electionType === "ejecutivo" ? "Ejecutivas" : "Legislativas"} - {selectedYear}
+                </h2>
+                <p className="text-muted-foreground">
+                  {electionType === "ejecutivo"
+                    ? `Total de votos: ${(yearData as any).totalVotes.toLocaleString()}`
+                    : `Total de escaños: ${(yearData as any).totalSeats}`}
+                </p>
+              </div>
+              <Button onClick={handleDownload} variant="outline" size="sm">
+                <Download className="h-4 w-4 mr-2" />
+                Descargar
+              </Button>
             </div>
-            {renderChart()}
+            {/* --- 💡 --- */}
+
+            {/* --- 💡 CAMBIO 5: Envolver el gráfico en un div con la ref --- */}
+            <div ref={chartContainerRef}>
+              {renderChart()}
+            </div>
+            {/* --- 💡 --- */}
           </Card>
 
           {/* Year Slider */}
           <Card className="p-6 shadow-soft">
-            {/* ...tu slider (sin cambios)... */}
+            <label className="block text-sm font-semibold text-foreground mb-4">
+              Selecciona el Año Electoral
+            </label>
+            <div className="space-y-4">
+              <Slider
+                value={[years.indexOf(selectedYear)]}
+                onValueChange={(value) => setSelectedYear(years[value[0]])}
+                max={years.length - 1}
+                step={1}
+                className="w-full"
+              />
+              <div className="flex justify-between text-sm text-muted-foreground">
+                {years.map((year) => (
+                  <button
+                    key={year}
+                    onClick={() => setSelectedYear(year)}
+                    className={`font-medium transition-colors ${
+                      selectedYear === year
+                        ? "text-primary font-bold"
+                        : "hover:text-foreground"
+                    }`}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+            </div>
           </Card>
         </div>
       </main>
