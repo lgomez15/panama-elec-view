@@ -7,10 +7,13 @@ import { Slider } from "@/components/ui/slider";
 import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import ejecutivoData from "@/data/elecciones_ejecutivo.json";
 import legislativoData from "@/data/elecciones_legislativo.json";
-import { BarChart3, PieChart as PieChartIcon, CircleDot } from "lucide-react";
+import provinciaData from "@/data/votos_por_provincia.json";
+import { BarChart3, PieChart as PieChartIcon, CircleDot, Map } from "lucide-react";
+import HemicicloChart from "@/components/charts/HemicicloChart";
+import MapChart from "@/components/charts/MapChart";
 
 type ElectionType = "ejecutivo" | "legislativo";
-type ChartType = "bar" | "pie" | "hemiciclo";
+type ChartType = "bar" | "pie" | "hemiciclo" | "mapa";
 
 const Datos = () => {
   const [electionType, setElectionType] = useState<ElectionType>("ejecutivo");
@@ -26,6 +29,15 @@ const Datos = () => {
     value: electionType === "ejecutivo" ? party.percentage : party.seats,
     fill: party.color,
   }));
+
+  // Party colors for map
+  const partyColors: Record<string, string> = {};
+  yearData.parties.forEach((party: any) => {
+    partyColors[party.name] = party.color;
+  });
+
+  // Province data for map
+  const provinceData = (provinciaData.data as any)[String(selectedYear)] || {};
 
   const renderChart = () => {
     if (chartType === "bar") {
@@ -70,55 +82,24 @@ const Datos = () => {
       );
     }
 
-    // Hemiciclo (semicircle)
-    const totalSeats = electionType === "legislativo" ? (yearData as any).totalSeats : 100;
-    const angleStep = 180 / totalSeats;
-    let currentAngle = 0;
+    if (chartType === "hemiciclo") {
+      const totalSeats = electionType === "legislativo" ? (yearData as any).totalSeats : 100;
+      return (
+        <div className="w-full h-[500px]">
+          <HemicicloChart data={chartData} totalSeats={totalSeats} />
+        </div>
+      );
+    }
 
-    return (
-      <div className="relative w-full h-[400px] flex items-end justify-center">
-        <div className="relative w-full max-w-2xl h-64">
-          {chartData.map((party) => {
-            const seats = electionType === "legislativo" ? party.value : Math.round(party.value);
-            const dots = [];
-            
-            for (let i = 0; i < seats; i++) {
-              const angle = (currentAngle + i * angleStep) * (Math.PI / 180);
-              const radius = 180;
-              const x = 50 + Math.cos(angle) * radius / 4;
-              const y = 100 - Math.sin(angle) * radius / 4;
-              
-              dots.push(
-                <circle
-                  key={`${party.name}-${i}`}
-                  cx={`${x}%`}
-                  cy={`${y}%`}
-                  r="6"
-                  fill={party.fill}
-                  className="transition-all hover:r-8"
-                />
-              );
-            }
-            
-            currentAngle += seats * angleStep;
-            return dots;
-          })}
+    if (chartType === "mapa") {
+      return (
+        <div className="w-full h-[500px]">
+          <MapChart data={provinceData} partyColors={partyColors} />
         </div>
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-6 flex-wrap">
-          {chartData.map((party) => (
-            <div key={party.name} className="flex items-center gap-2">
-              <div
-                className="w-4 h-4 rounded-full"
-                style={{ backgroundColor: party.fill }}
-              />
-              <span className="text-sm font-medium">
-                {party.name}: {party.value}{electionType === "ejecutivo" ? "%" : ""}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -167,7 +148,7 @@ const Datos = () => {
                 <label className="block text-sm font-semibold text-foreground mb-3">
                   Tipo de Gráfico
                 </label>
-                <div className="flex gap-2">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   <Button
                     onClick={() => setChartType("bar")}
                     variant={chartType === "bar" ? "default" : "outline"}
@@ -191,6 +172,14 @@ const Datos = () => {
                   >
                     <CircleDot className="h-4 w-4 mr-2" />
                     Hemiciclo
+                  </Button>
+                  <Button
+                    onClick={() => setChartType("mapa")}
+                    variant={chartType === "mapa" ? "default" : "outline"}
+                    className="flex-1"
+                  >
+                    <Map className="h-4 w-4 mr-2" />
+                    Mapa
                   </Button>
                 </div>
               </div>

@@ -1,0 +1,101 @@
+{
+  "years": [1994, 1999, 2004, 2009, 2014, 2019, 2024],
+  "provinces": [
+    "Bocas del Toro",
+    "Chiriquí",
+    "Coclé",
+    "Colón",
+    "Darién",
+    "Herrera",
+    "Los Santos",
+    "Panamá",
+    "Panamá Oeste",
+    "Veraguas"
+  ],
+  "data": {
+    "1994": {
+      "Bocas del Toro": { "votos": 28000, "principal": "PRD" },
+      "Chiriquí": { "votos": 95000, "principal": "Arnulfista" },
+      "Coclé": { "votos": 42000, "principal": "PRD" },
+      "Colón": { "votos": 52000, "principal": "PRD" },
+      "Darién": { "votos": 12000, "principal": "PRD" },
+      "Herrera": { "votos": 28000, "principal": "Arnulfista" },
+      "Los Santos": { "votos": 24000, "principal": "Arnulfista" },
+      "Panamá": { "votos": 320000, "principal": "PRD" },
+      "Panamá Oeste": { "votos": 115000, "principal": "PRD" },
+      "Veraguas": { "votos": 58000, "principal": "Papa Egoró" }
+    },
+    "1999": {
+      "Bocas del Toro": { "votos": 30000, "principal": "PRD" },
+      "Chiriquí": { "votos": 102000, "principal": "Arnulfista" },
+      "Coclé": { "votos": 44000, "principal": "PRD" },
+      "Colón": { "votos": 55000, "principal": "PRD" },
+      "Darién": { "votos": 13000, "principal": "PRD" },
+      "Herrera": { "votos": 29000, "principal": "Arnulfista" },
+      "Los Santos": { "votos": 25000, "principal": "Arnulfista" },
+      "Panamá": { "votos": 340000, "principal": "PRD" },
+      "Panamá Oeste": { "votos": 125000, "principal": "PRD" },
+      "Veraguas": { "votos": 62000, "principal": "Solidaridad" }
+    },
+    "2004": {
+      "Bocas del Toro": { "votos": 32000, "principal": "PRD" },
+      "Chiriquí": { "votos": 108000, "principal": "Panameñista" },
+      "Coclé": { "votos": 46000, "principal": "PRD" },
+      "Colón": { "votos": 58000, "principal": "PRD" },
+      "Darién": { "votos": 14000, "principal": "PRD" },
+      "Herrera": { "votos": 30000, "principal": "Panameñista" },
+      "Los Santos": { "votos": 26000, "principal": "Panameñista" },
+      "Panamá": { "votos": 360000, "principal": "PRD" },
+      "Panamá Oeste": { "votos": 135000, "principal": "PRD" },
+      "Veraguas": { "votos": 65000, "principal": "PRD" }
+    },
+    "2009": {
+      "Bocas del Toro": { "votos": 35000, "principal": "CD" },
+      "Chiriquí": { "votos": 115000, "principal": "CD" },
+      "Coclé": { "votos": 48000, "principal": "CD" },
+      "Colón": { "votos": 60000, "principal": "PRD" },
+      "Darién": { "votos": 15000, "principal": "PRD" },
+      "Herrera": { "votos": 32000, "principal": "CD" },
+      "Los Santos": { "votos": 28000, "principal": "CD" },
+      "Panamá": { "votos": 380000, "principal": "CD" },
+      "Panamá Oeste": { "votos": 145000, "principal": "CD" },
+      "Veraguas": { "votos": 68000, "principal": "CD" }
+    },
+    "2014": {
+      "Bocas del Toro": { "votos": 36000, "principal": "CD" },
+      "Chiriquí": { "votos": 118000, "principal": "Panameñista" },
+      "Coclé": { "votos": 49000, "principal": "CD" },
+      "Colón": { "votos": 62000, "principal": "PRD" },
+      "Darién": { "votos": 16000, "principal": "PRD" },
+      "Herrera": { "votos": 33000, "principal": "Panameñista" },
+      "Los Santos": { "votos": 29000, "principal": "Panameñista" },
+      "Panamá": { "votos": 390000, "principal": "Panameñista" },
+      "Panamá Oeste": { "votos": 148000, "principal": "CD" },
+      "Veraguas": { "votos": 70000, "principal": "CD" }
+    },
+    "2019": {
+      "Bocas del Toro": { "votos": 38000, "principal": "PRD" },
+      "Chiriquí": { "votos": 122000, "principal": "CD" },
+      "Coclé": { "votos": 50000, "principal": "PRD" },
+      "Colón": { "votos": 64000, "principal": "PRD" },
+      "Darién": { "votos": 16500, "principal": "PRD" },
+      "Herrera": { "votos": 34000, "principal": "Panameñista" },
+      "Los Santos": { "votos": 30000, "principal": "Panameñista" },
+      "Panamá": { "votos": 410000, "principal": "PRD" },
+      "Panamá Oeste": { "votos": 155000, "principal": "PRD" },
+      "Veraguas": { "votos": 72000, "principal": "CD" }
+    },
+    "2024": {
+      "Bocas del Toro": { "votos": 34000, "principal": "PRD" },
+      "Chiriquí": { "votos": 120000, "principal": "Panameñista" },
+      "Coclé": { "votos": 48000, "principal": "PRD" },
+      "Colón": { "votos": 60000, "principal": "PRD" },
+      "Darién": { "votos": 15000, "principal": "PRD" },
+      "Herrera": { "votos": 32000, "principal": "Panameñista" },
+      "Los Santos": { "votos": 28000, "principal": "Panameñista" },
+      "Panamá": { "votos": 400000, "principal": "PRD" },
+      "Panamá Oeste": { "votos": 150000, "principal": "PRD" },
+      "Veraguas": { "votos": 70000, "principal": "CD" }
+    }
+  }
+}
