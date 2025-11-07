@@ -1,0 +1,71 @@
+{
+  "1994": {
+    "year": 1994,
+    "totalVotes": 1025640,
+    "parties": [
+      { "name": "PRD", "votes": 340234, "percentage": 33.2, "color": "#D32F2F" },
+      { "name": "Arnulfista", "votes": 318456, "percentage": 31.0, "color": "#003366" },
+      { "name": "Papa Egoró", "votes": 245870, "percentage": 24.0, "color": "#FF6B35" },
+      { "name": "Otros", "votes": 121080, "percentage": 11.8, "color": "#9E9E9E" }
+    ]
+  },
+  "1999": {
+    "year": 1999,
+    "totalVotes": 1112450,
+    "parties": [
+      { "name": "PRD", "votes": 367434, "percentage": 33.0, "color": "#D32F2F" },
+      { "name": "Arnulfista", "votes": 345021, "percentage": 31.0, "color": "#003366" },
+      { "name": "Solidaridad", "votes": 278113, "percentage": 25.0, "color": "#4CAF50" },
+      { "name": "Otros", "votes": 121882, "percentage": 11.0, "color": "#9E9E9E" }
+    ]
+  },
+  "2004": {
+    "year": 2004,
+    "totalVotes": 1203780,
+    "parties": [
+      { "name": "PRD", "votes": 757391, "percentage": 62.9, "color": "#D32F2F" },
+      { "name": "Panameñista", "votes": 337056, "percentage": 28.0, "color": "#003366" },
+      { "name": "Solidaridad", "votes": 72227, "percentage": 6.0, "color": "#4CAF50" },
+      { "name": "Otros", "votes": 37106, "percentage": 3.1, "color": "#9E9E9E" }
+    ]
+  },
+  "2009": {
+    "year": 2009,
+    "totalVotes": 1550320,
+    "parties": [
+      { "name": "CD", "votes": 930192, "percentage": 60.0, "color": "#FF9800" },
+      { "name": "PRD", "votes": 573618, "percentage": 37.0, "color": "#D32F2F" },
+      { "name": "Otros", "votes": 46510, "percentage": 3.0, "color": "#9E9E9E" }
+    ]
+  },
+  "2014": {
+    "year": 2014,
+    "totalVotes": 1654890,
+    "parties": [
+      { "name": "Panameñista", "votes": 630111, "percentage": 38.1, "color": "#003366" },
+      { "name": "CD", "votes": 595052, "percentage": 36.0, "color": "#FF9800" },
+      { "name": "PRD", "votes": 312025, "percentage": 18.9, "color": "#D32F2F" },
+      { "name": "Otros", "votes": 117702, "percentage": 7.0, "color": "#9E9E9E" }
+    ]
+  },
+  "2019": {
+    "year": 2019,
+    "totalVotes": 1725340,
+    "parties": [
+      { "name": "PRD", "votes": 534454, "percentage": 31.0, "color": "#D32F2F" },
+      { "name": "CD", "votes": 517601, "percentage": 30.0, "color": "#FF9800" },
+      { "name": "Panameñista", "votes": 466844, "percentage": 27.0, "color": "#003366" },
+      { "name": "Otros", "votes": 206304, "percentage": 12.0, "color": "#9E9E9E" }
+    ]
+  },
+  "2024": {
+    "year": 2024,
+    "totalVotes": 1832120,
+    "parties": [
+      { "name": "RM", "votes": 732848, "percentage": 40.0, "color": "#9C27B0" },
+      { "name": "PRD", "votes": 549636, "percentage": 30.0, "color": "#D32F2F" },
+      { "name": "Panameñista", "votes": 366424, "percentage": 20.0, "color": "#003366" },
+      { "name": "Otros", "votes": 183212, "percentage": 10.0, "color": "#9E9E9E" }
+    ]
+  }
+}
