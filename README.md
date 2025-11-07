@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# 🗳️ Visualización de Datos Electorales – Frontend
 
-## Project info
+Interfaz web desarrollada para el **Tribunal Electoral de Panamá**, que permite visualizar de forma interactiva la evolución de los resultados electorales a lo largo de la historia democrática del país.  
 
-**URL**: https://lovable.dev/projects/9a517788-bb5b-4578-94f8-0b28023bb3f8
+---
 
-## How can I edit this code?
+## 🧠 Descripción general
 
-There are several ways of editing your application.
+El frontend muestra tres vistas principales:
 
-**Use Lovable**
+1. **Landing Page**  
+   Explica la historia de Panamá desde la vuelta a la democracia y el rol del Tribunal Electoral.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9a517788-bb5b-4578-94f8-0b28023bb3f8) and start prompting.
+2. **Vista de Datos Electorales (Core)**  
+   Permite explorar resultados del **Ejecutivo** o **Legislativo** por año, con tres tipos de gráficos:
+   - Barras
+   - Pie Chart
+   - Hemiciclo
+   - Mapa de Panamá por provincia
 
-Changes made via Lovable will be committed automatically to this repo.
+3. **Página de Contacto**  
+   Información institucional y formulario básico.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📁 Estructura del proyecto
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+/frontend
+├── src/
+│ ├── components/ # Componentes reutilizables
+│ ├── pages/ # Rutas principales
+│ │ ├── index.tsx # Landing
+│ │ ├── datos.tsx # Vista principal de datos
+│ │ └── contacto.tsx # Página de contacto
+│ ├── data/ # Datos locales (mock)
+│ ├── hooks/ # Custom hooks
+│ ├── styles/ # Tailwind y estilos globales
+│ └── utils/ # Funciones auxiliares
+├── public/ # Archivos estáticos (mapas, logos)
+├── package.json
+└── README.md
 
-Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## ⚙️ Instalación y ejecución
 
-# Step 3: Install the necessary dependencies.
-npm i
+```bash
+# Instalar dependencias
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Ejecutar entorno de desarrollo
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+# Abrir en el navegador
+http://localhost:3000
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9a517788-bb5b-4578-94f8-0b28023bb3f8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

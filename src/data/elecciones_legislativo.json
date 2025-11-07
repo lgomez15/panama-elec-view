@@ -3,73 +3,287 @@
     "year": 1994,
     "totalSeats": 72,
     "parties": [
-      { "name": "PRD", "seats": 31, "votes": 298456, "percentage": 43.1, "color": "#D32F2F" },
-      { "name": "Arnulfista", "seats": 16, "votes": 178234, "percentage": 22.2, "color": "#003366" },
-      { "name": "Papa Egoró", "seats": 14, "votes": 165432, "percentage": 19.4, "color": "#FF6B35" },
-      { "name": "Otros", "seats": 11, "votes": 125678, "percentage": 15.3, "color": "#9E9E9E" }
+      {
+        "name": "PRD",
+        "seats": 30,
+        "votes": 236319,
+        "percentage": 22.9,
+        "color": "#D32F2F"
+      },
+      {
+        "name": "ARNULFISTA",
+        "seats": 14,
+        "votes": 150217,
+        "percentage": 14.5,
+        "color": "#003366"
+      },
+      {
+        "name": "MOVIMIENTO_PAPA_EGORO",
+        "seats": 6,
+        "votes": 99760,
+        "percentage": 9.7,
+        "color": "#FF6B35"
+      },
+      {
+        "name": "MOLINERA",
+        "seats": 6,
+        "votes": 116833,
+        "percentage": 11.3,
+        "color": "#FFD700"
+      },
+      {
+        "name": "Otros",
+        "seats": 16,
+        "votes": 427210,
+        "percentage": 41.6,
+        "color": "#9E9E9E"
+      }
     ]
   },
   "1999": {
     "year": 1999,
     "totalSeats": 71,
     "parties": [
-      { "name": "PRD", "seats": 34, "votes": 345210, "percentage": 48.0, "color": "#D32F2F" },
-      { "name": "Arnulfista", "seats": 18, "votes": 198765, "percentage": 25.4, "color": "#003366" },
-      { "name": "Solidaridad", "seats": 12, "votes": 156234, "percentage": 16.9, "color": "#4CAF50" },
-      { "name": "Otros", "seats": 7, "votes": 87654, "percentage": 9.7, "color": "#9E9E9E" }
+      {
+        "name": "PRD",
+        "seats": 34,
+        "votes": 393356,
+        "percentage": 32.0,
+        "color": "#D32F2F"
+      },
+      {
+        "name": "ARNULFISTA",
+        "seats": 18,
+        "votes": 266030,
+        "percentage": 21.6,
+        "color": "#003366"
+      },
+      {
+        "name": "DEMOCRATA_CRISTIANO",
+        "seats": 5,
+        "votes": 107179,
+        "percentage": 8.7,
+        "color": "#808080"
+      },
+      {
+        "name": "SOLIDARIDAD",
+        "seats": 4,
+        "votes": 71860,
+        "percentage": 5.8,
+        "color": "#4CAF50"
+      },
+      {
+        "name": "Otros",
+        "seats": 10,
+        "votes": 388147,
+        "percentage": 31.9,
+        "color": "#9E9E9E"
+      }
     ]
   },
   "2004": {
     "year": 2004,
     "totalSeats": 78,
     "parties": [
-      { "name": "PRD", "seats": 40, "votes": 456789, "percentage": 51.3, "color": "#D32F2F" },
-      { "name": "Panameñista", "seats": 17, "votes": 234567, "percentage": 21.8, "color": "#003366" },
-      { "name": "Solidaridad", "seats": 9, "votes": 134567, "percentage": 11.5, "color": "#4CAF50" },
-      { "name": "Otros", "seats": 12, "votes": 165234, "percentage": 15.4, "color": "#9E9E9E" }
+      {
+        "name": "PRD",
+        "seats": 41,
+        "votes": 549948,
+        "percentage": 37.8,
+        "color": "#D32F2F"
+      },
+      {
+        "name": "ARNULFISTA",
+        "seats": 17,
+        "votes": 279560,
+        "percentage": 19.2,
+        "color": "#003366"
+      },
+      {
+        "name": "SOLIDARIDAD",
+        "seats": 9,
+        "votes": 227604,
+        "percentage": 15.7,
+        "color": "#4CAF50"
+      },
+      {
+        "name": "MOLIRENA",
+        "seats": 4,
+        "votes": 125547,
+        "percentage": 8.6,
+        "color": "#FFD700"
+      },
+      {
+        "name": "Otros",
+        "seats": 7,
+        "votes": 277939,
+        "percentage": 18.7,
+        "color": "#9E9E9E"
+      }
     ]
   },
   "2009": {
     "year": 2009,
     "totalSeats": 71,
     "parties": [
-      { "name": "CD", "seats": 36, "votes": 487654, "percentage": 50.7, "color": "#FF9800" },
-      { "name": "PRD", "seats": 26, "votes": 334567, "percentage": 36.6, "color": "#D32F2F" },
-      { "name": "Panameñista", "seats": 5, "votes": 78654, "percentage": 7.0, "color": "#003366" },
-      { "name": "Otros", "seats": 4, "votes": 54321, "percentage": 5.7, "color": "#9E9E9E" }
+      {
+        "name": "PRD",
+        "seats": 26,
+        "votes": 537426,
+        "percentage": 35.7,
+        "color": "#D32F2F"
+      },
+      {
+        "name": "PANAMEÑISTA",
+        "seats": 22,
+        "votes": 334282,
+        "percentage": 22.2,
+        "color": "#003366"
+      },
+      {
+        "name": "CAMBIO_DEMOCRATICO",
+        "seats": 14,
+        "votes": 352319,
+        "percentage": 23.4,
+        "color": "#FF9800"
+      },
+      {
+        "name": "UNION_PATRIOTICA",
+        "seats": 4,
+        "votes": 85609,
+        "percentage": 5.7,
+        "color": "#800000"
+      },
+      {
+        "name": "Otros",
+        "seats": 5,
+        "votes": 194468,
+        "percentage": 13.0,
+        "color": "#9E9E9E"
+      }
     ]
   },
   "2014": {
     "year": 2014,
     "totalSeats": 71,
     "parties": [
-      { "name": "CD", "seats": 30, "votes": 398765, "percentage": 42.3, "color": "#FF9800" },
-      { "name": "PRD", "seats": 25, "votes": 334567, "percentage": 35.2, "color": "#D32F2F" },
-      { "name": "Panameñista", "seats": 12, "votes": 165432, "percentage": 16.9, "color": "#003366" },
-      { "name": "Otros", "seats": 4, "votes": 54321, "percentage": 5.6, "color": "#9E9E9E" }
+      {
+        "name": "CAMBIO_DEMOCRATICO",
+        "seats": 30,
+        "votes": 573603,
+        "percentage": 33.7,
+        "color": "#FF9800"
+      },
+      {
+        "name": "PRD",
+        "seats": 25,
+        "votes": 535747,
+        "percentage": 31.5,
+        "color": "#D32F2F"
+      },
+      {
+        "name": "PANAMEÑISTA",
+        "seats": 13,
+        "votes": 343880,
+        "percentage": 20.2,
+        "color": "#003366"
+      },
+      {
+        "name": "MOLIRENA",
+        "seats": 2,
+        "votes": 121815,
+        "percentage": 7.2,
+        "color": "#FFD700"
+      },
+      {
+        "name": "Otros",
+        "seats": 1,
+        "votes": 126037,
+        "percentage": 7.4,
+        "color": "#9E9E9E"
+      }
     ]
   },
   "2019": {
     "year": 2019,
     "totalSeats": 71,
     "parties": [
-      { "name": "PRD", "seats": 35, "votes": 445678, "percentage": 49.3, "color": "#D32F2F" },
-      { "name": "CD", "seats": 18, "votes": 245678, "percentage": 25.4, "color": "#FF9800" },
-      { "name": "Panameñista", "seats": 8, "votes": 134567, "percentage": 11.3, "color": "#003366" },
-      { "name": "Independientes", "seats": 6, "votes": 98765, "percentage": 8.5, "color": "#2196F3" },
-      { "name": "Otros", "seats": 4, "votes": 54321, "percentage": 5.5, "color": "#9E9E9E" }
+      {
+        "name": "PARTIDO_REVOLUCIONARIO_DEMOCRATICO",
+        "seats": 35,
+        "votes": 0,
+        "percentage": 49.3,
+        "color": "#D32F2F"
+      },
+      {
+        "name": "CAMBIO_DEMOCRATICO",
+        "seats": 18,
+        "votes": 0,
+        "percentage": 25.4,
+        "color": "#FF9800"
+      },
+      {
+        "name": "PARTIDO_PANAMEÑISTA",
+        "seats": 8,
+        "votes": 0,
+        "percentage": 11.3,
+        "color": "#003366"
+      },
+      {
+        "name": "LIBRE_POSTULACION",
+        "seats": 5,
+        "votes": 0,
+        "percentage": 7.0,
+        "color": "#2196F3"
+      },
+      {
+        "name": "Otros",
+        "seats": 5,
+        "votes": 0,
+        "percentage": 7.0,
+        "color": "#9E9E9E"
+      }
     ]
   },
   "2024": {
     "year": 2024,
     "totalSeats": 71,
     "parties": [
-      { "name": "RM", "seats": 22, "votes": 334567, "percentage": 31.0, "color": "#9C27B0" },
-      { "name": "PRD", "seats": 20, "votes": 298765, "percentage": 28.2, "color": "#D32F2F" },
-      { "name": "CD", "seats": 13, "votes": 198765, "percentage": 18.3, "color": "#FF9800" },
-      { "name": "Panameñista", "seats": 8, "votes": 134567, "percentage": 11.3, "color": "#003366" },
-      { "name": "Independientes", "seats": 5, "votes": 87654, "percentage": 8.2, "color": "#2196F3" },
-      { "name": "Otros", "seats": 3, "votes": 34567, "percentage": 3.0, "color": "#9E9E9E" }
+      {
+        "name": "LIBRE_POSTULACION",
+        "seats": 20,
+        "votes": 514900,
+        "percentage": 24.1,
+        "color": "#2196F3"
+      },
+      {
+        "name": "RM",
+        "seats": 14,
+        "votes": 367378,
+        "percentage": 17.2,
+        "color": "#9C27B0"
+      },
+      {
+        "name": "PRD",
+        "seats": 13,
+        "votes": 347692,
+        "percentage": 16.3,
+        "color": "#D32F2F"
+      },
+      {
+        "name": "CD",
+        "seats": 8,
+        "votes": 239529,
+        "percentage": 11.2,
+        "color": "#FF9800"
+      },
+      {
+        "name": "Otros",
+        "seats": 16,
+        "votes": 677736,
+        "percentage": 31.7,
+        "color": "#9E9E9E"
+      }
     ]
   }
 }
