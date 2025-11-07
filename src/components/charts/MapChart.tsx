@@ -6,15 +6,17 @@ interface MapChartProps {
   partyColors: Record<string, string>;
 }
 
-// Ruta al archivo GeoJSON que pusiste en la carpeta /public
-const PANAMA_GEO_URL = "/provincias-panama.geojson";
+// Apunta a tu archivo /pa.json
+const PANAMA_GEO_URL = "/pa.json";
 
 const MapChart = ({ data, partyColors }: MapChartProps) => {
   const [hoveredProvince, setHoveredProvince] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
-  // Calcula el total de votos (tu lógica)
-  const totalVotes = Object.values(data).reduce((sum, d) => sum + d.votos, 0);
+  const totalVotes = Object.values(data).reduce(
+    (sum, d) => sum + d.votos,
+    0
+  );
 
   const handleMouseEnter = (provinceName: string, event: React.MouseEvent) => {
     setHoveredProvince(provinceName);
@@ -33,15 +35,12 @@ const MapChart = ({ data, partyColors }: MapChartProps) => {
     <div className="relative w-full h-full flex items-center justify-center bg-background">
       <ComposableMap
         projection="geoMercator"
-        // --- 💡 AJUSTA ESTO ---
-        // Tendrás que jugar con 'scale' y 'center' para que encaje perfectamente.
         projectionConfig={{
-          scale: 6500, // Aumenta este número para hacer zoom, redúcelo para alejar
-          center: [-80, 8.5] // [lon, lat] - Centro de Panamá
+          scale: 6500, // Ajusta esta escala...
+          center: [-80, 8.5], // ...y este centro si es necesario
         }}
-        // --- 💡 ---
-        width={800} // Tu viewBox original
-        height={600} // Tu viewBox original
+        width={800}
+        height={600}
         style={{ maxHeight: '500px' }}
         role="img"
         aria-label="Mapa electoral de Panamá por provincias"
@@ -50,15 +49,16 @@ const MapChart = ({ data, partyColors }: MapChartProps) => {
           {({ geographies }) =>
             geographies.map((geo) => {
               
-              // --- 💡 CAMBIO CLAVE AQUÍ ---
-              // Tu nuevo GeoJSON usa 'NOMBRE' en lugar de 'name'
-              const provinceName = geo.properties.NOMBRE; 
+              // --- 💡 ¡ESTA ES LA CORRECCIÓN! 💡 ---
+              // Tu GeoJSON usa "name" para la propiedad del nombre.
+              const provinceName = geo.properties.name; 
               // --- 💡 ---
 
               const provinceData = data[provinceName];
-              const fillColor = provinceData && partyColors[provinceData.principal]
-                ? partyColors[provinceData.principal]
-                : "hsl(var(--muted))";
+              const fillColor =
+                provinceData && partyColors[provinceData.principal]
+                  ? partyColors[provinceData.principal]
+                  : "hsl(var(--muted))";
 
               return (
                 <Geography
@@ -83,7 +83,7 @@ const MapChart = ({ data, partyColors }: MapChartProps) => {
         </Geographies>
       </ComposableMap>
 
-      {/* Tooltip (Tu código original - sin cambios) */}
+      {/* Tooltip (Sin cambios) */}
       {hoveredProvince && data[hoveredProvince] && (
         <div
           className="fixed z-50 px-3 py-2 bg-popover text-popover-foreground text-sm rounded-md shadow-lg border pointer-events-none"
@@ -94,10 +94,19 @@ const MapChart = ({ data, partyColors }: MapChartProps) => {
         >
           <div className="font-semibold mb-1">{hoveredProvince}</div>
           <div className="text-xs space-y-0.5">
-            <div>Votos: {data[hoveredProvince].votos.toLocaleString()}</div>
             <div>
-              Porcentaje: {((data[hoveredProvince].votos / totalVotes) * 100).toFixed(1)}%
+              Votos: {data[hoveredProvince].votos.toLocaleString()}
             </div>
+            {totalVotes > 0 && (
+              <div>
+                Porcentaje:{" "}
+                {(
+                  (data[hoveredProvince].votos / totalVotes) *
+                  100
+                ).toFixed(1)}
+                %
+              </div>
+            )}
             <div className="font-medium">
               Ganador: {data[hoveredProvince].principal}
             </div>
@@ -105,10 +114,10 @@ const MapChart = ({ data, partyColors }: MapChartProps) => {
         </div>
       )}
 
-      {/* Legend (Tu código original - sin cambios) */}
+      {/* Leyenda (Sin cambios) */}
       <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur-sm p-4 rounded-lg shadow-lg border">
         <h4 className="text-sm font-semibold mb-2">
-          Partido Ganador por Provincia
+          Ganador por Provincia
         </h4>
         <div className="space-y-1.5">
           {Object.entries(
@@ -122,10 +131,13 @@ const MapChart = ({ data, partyColors }: MapChartProps) => {
               <div key={party} className="flex items-center gap-2">
                 <div
                   className="w-4 h-4 rounded border border-white/20"
-                  style={{ backgroundColor: partyColors[party] || "hsl(var(--muted))" }}
+                  style={{
+                    backgroundColor:
+                      partyColors[party] || "hsl(var(--muted))",
+                  }}
                 />
                 <span className="text-xs">
-                  {party} ({count} {count === 1 ? 'provincia' : 'provincias'})
+                  {party} ({count} {count === 1 ? "provincia" : "provincias"})
                 </span>
               </div>
             ))}
